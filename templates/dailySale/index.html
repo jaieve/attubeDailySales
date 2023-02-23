@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-100 text-center">
+{#    <button id="baemin">배민 결제금액 확인</button>#}
+    <img src="/static/img/attube245.png">
+    <ul>
+        <li>{{ baemin.id }}</li>
+        <li>{{ baemin.password }}</li>
+        {% if baemin.date is not null %}
+            <span>날짜 : {{ baemin.date }}</span><br>
+            <span>금액 : {{ baemin.sum }}</span>
+        {% else %}
+            <button id="baemin" onclick="location.href='/dailySale/baemin'">배민 결제금액 확인</button>
+        {% endif %}
+    </ul>
+</body>
+
+</html>

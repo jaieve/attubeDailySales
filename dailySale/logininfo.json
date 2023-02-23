@@ -1,0 +1,22 @@
+﻿{
+    "baemin": {
+        "id" : "plate400",
+        "password" : "attube108!",
+        "url" : "https://biz-member.baemin.com/login?returnUrl=https%3A%2F%2Fceo.baemin.com%2F%3Fn_media%3D27758%26n_query%3D%25EB%25B0%25B0%25EB%25AF%25BC%25EC%2582%25AC%25EC%259E%25A5%25EB%258B%2598%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8%26n_rank%3D1%26n_ad_group%3Dgrp-a001-04-000000020647467%26n_ad%3Dnad-a001-04-000000226862462%26n_keyword_id%3Dnkw-a001-04-000003596587572%26n_keyword%3D%25EB%25B0%25B0%25EB%25AF%25BC%25EC%2582%25AC%25EC%259E%25A5%25EB%258B%2598%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8%26n_campaign_type%3D4%26n_contract%3Dtct-a001-04-000000000661396%26n_ad_group_type%3D5"
+    },
+    "yogiyo" : {
+        "id" : "plate400",
+        "password" : "attube108!",
+        "url" : "https://boss.yogiyo.co.kr/login"
+    },
+    "coupangEats" : {
+        "id" : "plate408",
+        "password" : "attube108!",
+        "url" : "https://store.coupangeats.com/merchant/login"
+    },
+    "ttang-gyeo" : {
+        "id" : "plate408",
+        "password" : "attube108!",
+        "url" : "https://boss.ddangyo.com/"
+    }
+}
