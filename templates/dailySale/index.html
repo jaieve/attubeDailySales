@@ -58,7 +58,8 @@
                {% if coupangEats.date is not null %}
                    <br/>
                    <span>날짜 : {{ coupangEats.date }}</span>
-                   <span>금액 : <b>{{ coupangEats.sum }}</b></span>
+                   <span>매출액 합계 : <b>{{ coupangEats.beforeSum }}</b></span>
+                   <span>정산예정금액 합계 : <b>{{ coupangEats.sum }}</b></span>
                 {% else %}
                    <button class="ml-10 rounded bg-orange-400 text-white p-3" id="coupang" onclick="location.href='/dailySale/coupang'">CoupangEats 결제금액 확인</button>
                 {% endif %}
