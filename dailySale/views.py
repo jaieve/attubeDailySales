@@ -75,11 +75,13 @@ def baemin(request):
 
     date = driver.find_element(By.CLASS_NAME, 'FilterContainer-module__k3Id')
     dailySaleSum = driver.find_elements(By.CLASS_NAME, 'Contents-module__GDe2')
-    print(date.text, dailySaleSum[1].text)
+
     loginInfo['baemin']['date'] = date.text
     loginInfo['baemin']['sum'] = dailySaleSum[1].text
     context = loginInfo
     template = loader.get_template('dailySale/index.html')
+    driver.quit()
+
     return HttpResponse(template.render(context, request))
 
 def index(request):
