@@ -18,11 +18,11 @@
     <div class="col-span-3 flex flex-col space-y-5 h-screen justify-center content-center">
         <img src="/static/img/attube245.png" class="block mx-auto">
         <span class="text-xl text-center">㈜ 아뜨베</span>
-        <span class="text-3xl text-center">배달플랫폼 일일매출 확인 프로그램</span>
+        <span class="text-3xl text-center">배달플랫폼 아뜨베 강남점 일일매출 확인 프로그램</span>
         <span class="text-sm text-center">개발자 홍서연</span>
         <div class="footer "></div>
     </div>
-    <div class="grid justify-start py-20 col-span-3 gap-y-10 content-around">
+    <div class="grid justify-start py-20 col-span-3 gap-y-5 content-around">
         <div>
             <div class="mx-10">
                 <h3 class="text-3xl text-orange-400 font-bold">배민 사장님</h3>
@@ -32,7 +32,7 @@
                 <span> 비밀번호 : <b>{{ baemin.password }}</b></span>
                {% if baemin.date is not null %}
                    <br/>
-                   <span>날짜 : {{ baemin.date }}</span>
+                   <span>날짜 : {{ baemin.date }}</span><br/>
                    <span>금액 : {{ baemin.sum }}</span>
                 {% else %}
                    <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="baemin" onclick="location.href='/dailySale/baemin'">배민 결제금액 확인</button>
@@ -49,7 +49,7 @@
                 <span> 비밀번호 : <b>{{ yogiyo.password }}</b></span>
                {% if yogiyo.date is not null %}
                    <br/>
-                   <span>날짜 : {{ yogiyo.date }}</span>
+                   <span>날짜 : {{ yogiyo.date }}</span><br/>
                    <span>금액 : {{ yogiyo.sum }}</span>
                 {% else %}
                    <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="yogiyo" onclick="location.href='/dailySale/yogiyo'">요기요 결제금액 확인</button>
@@ -66,8 +66,8 @@
                 <span> 비밀번호 : <b>{{ coupangEats.password }}</b></span>
                {% if coupangEats.date is not null %}
                    <br/>
-                   <span>날짜 : {{ coupangEats.date }}</span>
-                   <span>매출액 합계 : <b>{{ coupangEats.beforeSum }}</b></span>
+                   <span>날짜 : {{ coupangEats.date }}</span><br/>
+                   <span>매출액 합계 : <b>{{ coupangEats.beforeSum }}</b></span> |
                    <span>정산예정금액 합계 : <b>{{ coupangEats.sum }}</b></span>
                 {% else %}
                    <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="coupang" onclick="location.href='/dailySale/coupang'">쿠팡이츠 결제금액 확인</button>
@@ -87,7 +87,7 @@
                    <span>날짜 : {{ ttanggyeo.date }}</span>
                    <span>금액 : {{ ttanggyeo.sum }}</span>
                 {% else %}
-                   <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="ttaeng" onclick="location.href='/dailySale/ttaeng'">땡겨요 결제금액 확인</button>
+                   <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="ttaeng" onclick="location.href='/dailySale/ttanggyeo'">땡겨요 정산내역</button>
                 {% endif %}
             </div>
         </div>

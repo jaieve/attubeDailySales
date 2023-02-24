@@ -73,7 +73,7 @@ def baemin(request):
     dailySaleSum = driver.find_elements(By.CLASS_NAME, 'Contents-module__GDe2')
 
     loginInfo['baemin']['date'] = getYesterday('-')
-    loginInfo['baemin']['sum'] = dailySaleSum[1].text
+    loginInfo['baemin']['sum'] = dailySaleSum[1].text  + " 원"
     driver.quit()
 
     context = loginInfo
@@ -117,7 +117,7 @@ def yogiyo(request):
     dailySaleSum = driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/table/tbody/tr[2]/td[4]/span[1]')
 
     loginInfo['yogiyo']['date'] = yesterday
-    loginInfo['yogiyo']['sum'] = dailySaleSum.text
+    loginInfo['yogiyo']['sum'] = dailySaleSum.text  + " 원"
     driver.quit()
 
     context = loginInfo
@@ -131,6 +131,8 @@ def deleteComma(price):
     price = int(price.replace(',', ''))
     return price
 
+def addComma(price):
+    pass
 
 def coupang(request):
     data = loginInfo['coupangEats']
@@ -199,8 +201,9 @@ def coupang(request):
         else:
             break
 
-    loginInfo['coupangEats']['date'] = yesterday
-    loginInfo['coupangEats']['sum'] = sum
+    loginInfo['coupangEats']['date'] = getYesterday("-")
+    loginInfo['coupangEats']['beforeSum'] = format(beforeSum, ',') + " 원"
+    loginInfo['coupangEats']['sum'] = format(sum, ',') + " 원"
     driver.quit()
 
     context = loginInfo
@@ -208,6 +211,37 @@ def coupang(request):
     return HttpResponse(template.render(context, request))
 
 def ttanggyeo(request):
+    data = loginInfo['ttanggyeo']
+    chrome_options = Options()
+    chrome_options.add_experimental_option("detach", True)  # 브라우저 꺼짐 방지
+    chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0;Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')
+    chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_experimental_option('useAutomationExtension', False)
+    # chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    # mobile_emulation = {"deviceName": "iPhone X"}
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation) # 모바일버전 설정
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])  # 불필요한 에러 메시지 없애기
+    service = Service()
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    # dr = webdriver.Chrome("C:/windows/chromedriver.exe")  # 크롬 드라이버를 실행하는 명령어를 dr로 지정
+    driver.set_window_position(0, 0)
+    driver.set_window_size(1500, 800)
+    driver.get(data['url'])
+    time.sleep(2)
+    # 로그인
+    act = ActionChains(driver)  # 드라이버에 동작을 실행시키는 명령어를 act로 지정
+    elem_id = driver.find_element(By.XPATH, '/html/body/div/div[2]/ul/li[1]/div[2]/div/input')
+    elem_pw = driver.find_element(By.XPATH, '/html/body/div/div[2]/ul/li[2]/div[2]/div/input')
+    btnLogin = driver.find_element(By.XPATH, '/html/body/div/div[3]/input')
+    act.send_keys_to_element(elem_id, data['id']).send_keys_to_element(elem_pw, data['password']).click(
+        btnLogin).perform()
+    time.sleep(4)
+    # 정산내역 화면 띄우기
+    driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/nav/ul/li/ul[4]/li[3]/a').click()
+
+
+
     context = loginInfo
     template = loader.get_template('dailySale/index.html')
     return HttpResponse(template.render(context, request))
