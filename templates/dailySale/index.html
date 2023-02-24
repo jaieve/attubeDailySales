@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <title>아뜨베 강남점 일매출 확인</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static "main.css" %}">
+    <link rel="stylesheet" href="{% static "global.css" %}">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gaegu:wght@400;700&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        img { height: 252px; width:  252px}
+    </style>
 </head>
-<body class="bg-orange-100 grid grid-cols-6 h-screen content-center">
-{#    <button id="baemin">배민 결제금액 확인</button>#}
-    <div class="flex justify-center col-span-2">
-        <img src="/static/img/attube245.png" class="object-scale-down">
+<body class="bg-orange-100 grid grid-cols-6 h-screen content-center" style="font-family: 'Jua', SansSerif;">
+    <div class="col-span-3 flex flex-col space-y-5 h-screen justify-center content-center">
+        <img src="/static/img/attube245.png" class="block mx-auto">
+        <span class="text-xl text-center">㈜ 아뜨베</span>
+        <span class="text-3xl text-center">배달플랫폼 일일매출 확인 프로그램</span>
+        <span class="text-sm text-center">개발자 홍서연</span>
+        <div class="footer "></div>
     </div>
-    <div class="grid justify-start py-20 col-span-3 gap-20 content-around">
+    <div class="grid justify-start py-20 col-span-3 gap-y-10 content-around">
         <div>
             <div class="mx-10">
-                <h3 class="text-2xl text-orange-400 font-bold">배민 사장님</h3>
+                <h3 class="text-3xl text-orange-400 font-bold">배민 사장님</h3>
             </div>
             <div class="mx-10">
                 <span> 아이디 : <b>{{ baemin.id }}</b></span>
@@ -26,14 +35,14 @@
                    <span>날짜 : {{ baemin.date }}</span>
                    <span>금액 : {{ baemin.sum }}</span>
                 {% else %}
-                   <button class="ml-10 rounded bg-orange-400 text-white p-3" id="baemin" onclick="location.href='/dailySale/baemin'">배민 결제금액 확인</button>
+                   <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="baemin" onclick="location.href='/dailySale/baemin'">배민 결제금액 확인</button>
                 {% endif %}
             </div>
         </div>
 
         <div>
             <div class="mx-10">
-                <h3 class="text-2xl text-orange-400 font-bold">요기요</h3>
+                <h3 class="text-3xl text-orange-400 font-bold">요기요</h3>
             </div>
             <div class="mx-10">
                 <span> 아이디 : <b>{{ yogiyo.id }}</b></span>
@@ -43,14 +52,14 @@
                    <span>날짜 : {{ yogiyo.date }}</span>
                    <span>금액 : {{ yogiyo.sum }}</span>
                 {% else %}
-                   <button class="ml-10 rounded bg-orange-400 text-white p-3" id="yogiyo" onclick="location.href='/dailySale/yogiyo'">요기요 결제금액 확인</button>
+                   <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="yogiyo" onclick="location.href='/dailySale/yogiyo'">요기요 결제금액 확인</button>
                 {% endif %}
             </div>
         </div>
 
         <div>
             <div class="mx-10">
-                <h3 class="text-2xl text-orange-400 font-bold">CoupangEats</h3>
+                <h3 class="text-3xl text-orange-400 font-bold">쿠팡Eats</h3>
             </div>
             <div class="mx-10">
                 <span> 아이디 : <b>{{ coupangEats.id }}</b></span>
@@ -61,14 +70,14 @@
                    <span>매출액 합계 : <b>{{ coupangEats.beforeSum }}</b></span>
                    <span>정산예정금액 합계 : <b>{{ coupangEats.sum }}</b></span>
                 {% else %}
-                   <button class="ml-10 rounded bg-orange-400 text-white p-3" id="coupang" onclick="location.href='/dailySale/coupang'">CoupangEats 결제금액 확인</button>
+                   <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="coupang" onclick="location.href='/dailySale/coupang'">쿠팡이츠 결제금액 확인</button>
                 {% endif %}
             </div>
         </div>
 
         <div>
             <div class="mx-10">
-                <h3 class="text-2xl text-orange-400 font-bold">땡겨요</h3>
+                <h3 class="text-3xl text-orange-400 font-bold">땡겨요</h3>
             </div>
             <div class="mx-10">
                 <span> 아이디 : <b>{{ ttanggyeo.id }}</b></span>
@@ -78,7 +87,7 @@
                    <span>날짜 : {{ ttanggyeo.date }}</span>
                    <span>금액 : {{ ttanggyeo.sum }}</span>
                 {% else %}
-                   <button class="ml-10 rounded bg-orange-400 text-white p-3" id="ttaeng" onclick="location.href='/dailySale/ttaeng'">땡겨요 결제금액 확인</button>
+                   <button class="ml-10 rounded bg-orange-400 text-white p-3 text-xl" id="ttaeng" onclick="location.href='/dailySale/ttaeng'">땡겨요 결제금액 확인</button>
                 {% endif %}
             </div>
         </div>

@@ -191,8 +191,6 @@ def coupang(request):
                     if lis.index(i)+1 == len(lis):
                         nextPageBtn = driver.find_element(By.XPATH, '/html/body/div/div/div/div[2]/div[1]/div/div/div/div[1]/div[5]/div/div/div/div/ul/li['+str(current+4)+']/button')
                         nextPageBtn.click()
-                        # driver.move_to_element(nextPageBtn)
-                        # driver.click(nextPageBtn)
                         current = current + 1
                 else:
                     print('another day')
@@ -203,7 +201,6 @@ def coupang(request):
 
     loginInfo['coupangEats']['date'] = yesterday
     loginInfo['coupangEats']['sum'] = sum
-    # loginInfo['coupangEats']['beforeSum'] = beforeSum
     driver.quit()
 
     context = loginInfo
