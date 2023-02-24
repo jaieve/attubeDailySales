@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 import json
+import codecs
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 secret_file = os.path.join(BASE_DIR, 'secrets.json')
 
-with open(secret_file) as f:
+with codecs.open(secret_file, 'rt', encoding='utf-8-sig') as f:
     secrets = json.loads(f.read())
 
 def get_secret(setting, secrets=secrets):
@@ -132,8 +133,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'djangoProject', 'static')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+# STATIC_ROOT는 실제 배포시 사용되는 경로이며, STATICFILES_DIRS는 배포 전에 정적 파일들이 모여있는 경로이다.
+# 따라서 반드시 다르게 설정해야 한다.
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

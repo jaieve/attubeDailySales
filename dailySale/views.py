@@ -35,6 +35,9 @@ def baemin(request):
     chrome_options.add_experimental_option("detach", True) # 브라우저 꺼짐 방지
     # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation) # 모바일버전 설정
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"]) # 불필요한 에러 메시지 없애기
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
 
     service = Service()
     driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -87,6 +90,9 @@ def yogiyo(request):
     mobile_emulation = {"deviceName": "iPhone X"}
     # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation) # 모바일버전 설정
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"]) # 불필요한 에러 메시지 없애기
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
 
     service = Service()
     driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -146,6 +152,9 @@ def coupang(request):
     # mobile_emulation = {"deviceName": "iPhone X"}
     # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation) # 모바일버전 설정
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])  # 불필요한 에러 메시지 없애기
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
 
     service = Service()
     driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -222,6 +231,10 @@ def ttanggyeo(request):
     # mobile_emulation = {"deviceName": "iPhone X"}
     # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation) # 모바일버전 설정
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])  # 불필요한 에러 메시지 없애기
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+
     service = Service()
     driver = webdriver.Chrome(service=service, options=chrome_options)
     # dr = webdriver.Chrome("C:/windows/chromedriver.exe")  # 크롬 드라이버를 실행하는 명령어를 dr로 지정
